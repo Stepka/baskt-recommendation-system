@@ -1,6 +1,6 @@
 Recommendation System located at baskt-recommendation-system at the baskt.com ec2 instasnce.
 
-###Content.
+### Content.
 
 - **recipes/baskt_rs_recipes.py** - recommendations engine based on recipes.
 - **favs/baskt_rs_favs.py** - recommendations engine based on favorites.
@@ -27,7 +27,7 @@ Recommendation System located at baskt-recommendation-system at the baskt.com ec
 
 - **recipes/data/recipes_db.csv** - dataset with scrapped recipes from yammly
 
-###Showcase
+### Showcase
 ###### Flask served Recommendation Engine.
 
 For using Engine as endpoints I made simple Flask server with Recommendation Engine model running on.
@@ -45,7 +45,7 @@ http://ec2-18-214-220-221.compute-1.amazonaws.com:5001/get_recommendations/recip
 ###### Recommendations via command line:
 For testing purposes and as example of using I made *prediction_service_recipes.py*, *prediction_service_favs.py*, *prediction_service_orders.py*. Just run it, wait until model be prepared and ask.
 
-###Usage
+### Usage
 First of all you need to train model. Run *train_service.py* for that. Looks like it is a good idea to run the script after new products will be added to database (but no more often then 1 time per day).
 
 When Recommendation System training process have ends you can get recommendations. 
@@ -65,7 +65,7 @@ For this you need create *BasktRecommendationSystemRecipes*, *BasktRecommendatio
 		model.prepare('predict', session)
 
 		# get recommendations
-		product_name = ìproduct nameî
+		product_name = ‚Äúproduct name‚Äù
 		num_recommendations = 10
 		predicted = model.predict(product_name, num_recommendations , predict_type="product_names")
 
@@ -84,7 +84,7 @@ Has API methods:
 - **/get_recommendations/recipes**
 	- *product_name* -  it can be product name or any string from search.
     - *num_recommendations* - num of products that system will try to return. System may return less products if it did not find the required number of products from the nearest clusters. Default is 10.
-    - *predict_type* - type of return value. Can be one from ì*product_ids*î, ì*product_names*î or ì*cluster_names*î strings. In case ì*product_ids*î system will return products ucp, in case ì*product_names*î will return full product names, and in case ì*cluster_names*î system will return cluster names, extracted from yammly recipes. ***If omitted will be returned full info about products got from dynamoDB.***
+    - *predict_type* - type of return value. Can be one from ‚Äú*product_ids*‚Äù, ‚Äú*product_names*‚Äù or ‚Äú*cluster_names*‚Äù strings. In case ‚Äú*product_ids*‚Äù system will return products ucp, in case ‚Äú*product_names*‚Äù will return full product names, and in case ‚Äú*cluster_names*‚Äù system will return cluster names, extracted from yammly recipes. ***If omitted will be returned full info about products got from dynamoDB.***
 - **/get_recommendations/favs**
 	- *upc* -  it should be *upc* of the product.
     - *num_recommendations* - num of products that system will try to return. System may return less products if it did not find the required number of products from the nearest clusters. Default is 10.
@@ -98,13 +98,13 @@ You can use written Lambda function named
 
 Function located in N. Virginia region. Function written for NodeJS. And can be merged to your NodeJS scripts. 
 
-###Params
+### Params
 
 ###### *BasktRecommendationSystemRecipes.predict()*  
 method has the following params:
 - ***product_name*** - it can be product name or any string from search.
 - ***num_predictions*** - num of products that system will try to return. System may return less products if it did not find the required number of products from the nearest clusters.
-- ***predict_type*** - type of return value. Can be one from ì*product_ids*î, ì*product_names*î or ì*cluster_names*î strings. In case ì*product_ids*î system will return products ucp, in case ì*product_names*î will return full product names, and in case ì*cluster_names*î system will return cluster names, extracted from yammly recipes.
+- ***predict_type*** - type of return value. Can be one from ‚Äú*product_ids*‚Äù, ‚Äú*product_names*‚Äù or ‚Äú*cluster_names*‚Äù strings. In case ‚Äú*product_ids*‚Äù system will return products ucp, in case ‚Äú*product_names*‚Äù will return full product names, and in case ‚Äú*cluster_names*‚Äù system will return cluster names, extracted from yammly recipes.
 
 ###### *BasktRecommendationSystemFavs.predict()*  
 method has the following params:
