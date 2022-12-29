@@ -1,4 +1,4 @@
-Recommendation System located at baskt-recommendation-system at the baskt.com ec2 instasnce.
+Recommendation System located at ec2 instasnce and ru with Flask server.
 
 ### Content.
 
